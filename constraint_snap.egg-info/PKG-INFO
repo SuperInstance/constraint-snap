@@ -1,0 +1,35 @@
+Metadata-Version: 2.4
+Name: constraint-snap
+Version: 0.1.0
+Summary: Geometric constraint snapping — resolve overlapping constraints, snap to feasible points
+Author-email: Oracle1 <oracle1@cocapn.ai>
+License-Expression: MIT
+Project-URL: Homepage, https://github.com/SuperInstance/constraint-snap
+Keywords: constraint,snap,geometric,resolve,cocapn
+Classifier: Development Status :: 3 - Alpha
+Classifier: Intended Audience :: Developers
+Classifier: Programming Language :: Python :: 3
+Requires-Python: >=3.10
+Description-Content-Type: text/markdown
+
+# constraint-snap
+
+Geometric constraint snapping. Define ranges, snap values to satisfy all constraints, detect conflicts. Like snapping to a grid, but for behavior spaces.
+
+## Usage
+
+```python
+from constraint_snap import ConstraintSnap, Constraint
+
+cs = ConstraintSnap()
+cs.add(Constraint("max_speed", 0, 100))
+cs.add(Constraint("safe_speed", 0, 60))
+
+result = cs.snap(75)
+# snapped=60, violations=["safe_speed"], feasible=False (was clamped)
+
+lo, hi = cs.feasible_range()  # (0, 60) — intersection
+conflicts = cs.conflicts()    # [] — no impossible pairs
+```
+
+Zero deps. `pip install constraint-snap`

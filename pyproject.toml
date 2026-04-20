@@ -1,0 +1,21 @@
+[build-system]
+requires = ["setuptools>=64", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "constraint-snap"
+version = "0.1.0"
+description = "Geometric constraint snapping — resolve overlapping constraints, snap to feasible points"
+readme = "README.md"
+license = "MIT"
+requires-python = ">=3.10"
+authors = [{name = "Oracle1", email = "oracle1@cocapn.ai"}]
+keywords = ["constraint", "snap", "geometric", "resolve", "cocapn"]
+classifiers = [
+    "Development Status :: 3 - Alpha",
+    "Intended Audience :: Developers",
+    "Programming Language :: Python :: 3",
+]
+
+[project.urls]
+Homepage = "https://github.com/SuperInstance/constraint-snap"
